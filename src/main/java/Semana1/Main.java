@@ -1,4 +1,4 @@
-package projeto1;
+package Semana1;
 
 class Main {
   public static final String ANSI_RED = "\u001B[31m";

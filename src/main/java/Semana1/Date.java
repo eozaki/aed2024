@@ -1,4 +1,4 @@
-package projeto1;
+package Semana1;
 
 public class Date {
   private int month, day, year;

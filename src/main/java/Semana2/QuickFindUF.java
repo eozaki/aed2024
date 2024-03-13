@@ -1,4 +1,4 @@
-package projeto2;
+package Semana2;
 
 public class QuickFindUF {
   private int[] id;
