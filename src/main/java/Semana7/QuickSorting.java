@@ -1,8 +1,11 @@
 package Semana7;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class QuickSorting {
+  private static final int MAX_INSERTION_SORT_SIZE = 5;
+
   public static boolean lessOrEqual(Comparable a, Comparable b) {
     return a.compareTo(b) <= 0;
   }
@@ -48,14 +51,28 @@ public class QuickSorting {
 
   public static void sortSubarray(Comparable[] a, int lo, int hi) {
     if(lo >= hi) return;
-
-    int j = partition(a, lo, hi);
-    sortSubarray(a, lo, j - 1);
-    sortSubarray(a, j + 1, hi);
+    if(hi - lo <= MAX_INSERTION_SORT_SIZE)
+      insertionSort(a, lo, hi);
+    else {
+      int j = partition(a, lo, hi);
+      sortSubarray(a, lo, j - 1);
+      sortSubarray(a, j + 1, hi);
+    }
   }
 
   public static void sort(Comparable[] a) {
+    shuffle(a);
     sortSubarray(a, 0, a.length - 1);
+  }
+
+  public static void insertionSort(Comparable[] a, int lo, int hi) {
+    for(int i = lo; i <= hi; i++) {
+      Comparable b = a[i];
+      int j = i;
+      for(; j > lo && lessOrEqual(a[j], a[j - 1]); j--)
+        exchange(a, j, j - 1);
+      a[j] = b;
+    }
   }
 
   public static void main(String[] args) {
@@ -72,8 +89,17 @@ public class QuickSorting {
     System.out.println("After sorting: " + Arrays.toString(a));
     System.out.println("Is sorted? " + isSorted(a));
   }
+
+  public static int medianOfThree(Comparable[] a, int lo, int hi) {
+    int i1 = (int)(Math.random() * (hi - lo + 1)) + lo;
+    int i2 = (int)(Math.random() * (hi - lo + 1)) + lo;
+    int i3 = (int)(Math.random() * (hi - lo + 1)) + lo;
+
+    Comparable[] b = {a[i1], a[i2], a[i3]};
+    sortSubarray(b, 0, 2);
+
+    if(Objects.equals(a[i1], b[1])) return i1;
+    if(Objects.equals(a[i2], b[1])) return i2;
+    return i3;
+  }
 }
-
-
-// Sortear 3, escolhe o mediano, troca com a 1a posicao
-// Segunda melhoria eu não lembro, verificar
