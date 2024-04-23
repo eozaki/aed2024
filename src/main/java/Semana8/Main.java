@@ -25,16 +25,15 @@ public class Main {
     assertEquals(HeapSorting.parent(6), 2);
 
     HeapSorting.sink(a, 0, 7);
+    int[] expected = {2, 1, 6, 3, 4, 5, 0};
+    for(int i = 0; i < expected.length; i++) {
+      assertEquals(a[i], expected[i]);
+    }
 
-    assertEquals(a[0], 2);
-    assertEquals(a[1], 1);
-    assertEquals(a[2], 6);
-    assertEquals(a[3], 3);
-    assertEquals(a[4], 4);
-    assertEquals(a[5], 5);
-    assertEquals(a[6], 0);
-
-    for(int i = 0; i < a.length / 2; i++) HeapSorting.sink(a, i, 7);
-    System.out.println(Arrays.toString(a));
+    HeapSorting.heapify(a, a.length);
+    expected = new int[]{6, 4, 5, 3, 1, 2, 0};
+    for(int i = 0; i < expected.length; i++) {
+      assertEquals(a[i], expected[i]);
+    }
   }
 }
