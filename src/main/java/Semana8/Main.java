@@ -44,16 +44,21 @@ public class Main {
     for(int i = 0; i < 31; i++) { b[i] = (int) (Math.random() * 100); }
     HeapSorting.heapify(b, b.length);
     print(b, b.length);
-
     HeapSorting.sortdown(b, b.length);
     print(b, b.length);
+
+    assertEquals(HeapSorting.isSorted(b), false);
+    HeapSorting.sortdown(b, b.length - 1);
+    print(b, b.length);
+    HeapSorting.sort(b);
+    assertEquals(HeapSorting.isSorted(b), true);
   }
 
   public static void print(Comparable[] arr, int N) {
     TreePrinter<Integer> printer = new TreePrinter<>(k -> "" + arr[k],
       k -> left(k) < N ? left(k) : null,
       k -> right(k) < N ? right(k) : null);
-    printer.setHspace(2); //espaço horizontal entre nós
+    printer.setHspace(1); //espaço horizontal entre nós
     printer.setSquareBranches(true); //acho que gosto mais assim, mas false também é fixe
     printer.printTree(0); //1 = root, isto é com a heap a começar no índice 1
   }
