@@ -35,5 +35,10 @@ public class Main {
     for(int i = 0; i < expected.length; i++) {
       assertEquals(a[i], expected[i]);
     }
+
+    Integer[] b = new Integer[15];
+    for(int i = 0; i < 15; i++) { b[i] = (int) (Math.random() * 100); }
+    HeapSorting.heapify(b, b.length);
+    System.out.println(Arrays.toString(b));
   }
 }
