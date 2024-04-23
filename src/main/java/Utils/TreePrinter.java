@@ -2,7 +2,10 @@ package Utils;
 /*
  * Creditos de colaboração nos testes
  * ao meu colega de curso Tiago Alves
- * (@Marevin - https://github.com/Marevin)
+ * (@Marevin - https://github.com/Marevin),
+ * que encontrou a solução de impressão da árvore.
+ * Creditos a Bill Vanyo (@billvanyo - https://github.com/billvanyo)
+ * pela implementação que usamos aqui
  */
 
 import java.io.PrintStream;
