@@ -15,6 +15,14 @@ public class Test {
    */
   public static final String maybe = "maybe";
 
+  public static void assertNull(Object givenValue) {
+    if(givenValue == null) {
+      System.out.println(ANSI_GREEN + "Ok: (dado) " + givenValue + " é nulo como esperado;" + ANSI_RESET);
+    } else {
+      System.out.println(ANSI_RED + "ERRO: (dado) \"" + givenValue.toString() + "\" NÃO é nulo como esperado;" + ANSI_RESET);
+    }
+  }
+
   public static void assertEquals(Object givenValue, Object expectedValue) {
     if(expectedValue == maybe) {
       System.out.println(

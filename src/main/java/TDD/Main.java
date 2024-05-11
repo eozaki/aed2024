@@ -9,5 +9,7 @@ public class Main {
 
     assertEquals(Fatorial.de(10), 3628800);
     assertEquals(Fatorial.de(6), 720);
+
+    assertEquals(Fatorial.de(5) > Fatorial.de(3), true);
   }
 }
