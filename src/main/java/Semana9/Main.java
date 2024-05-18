@@ -41,5 +41,40 @@ public class Main {
     assertEquals(st.floor("eeee"), "direita da raiz");
     assertEquals(st.ceiling("eeee"), "faca");
     assertEquals(st.floor("faca"), "faca");
+    assertEquals(st.ceiling("faca"), "faca");
+    assertEquals(st.height(), 3);
+
+    assertEquals(st.size(), 4);
+    assertEquals(st.size(st.min(), st.max()), 4);
+    for(String i : st.keys()) {
+      System.out.println(i);
+    }
+    assertEquals(st.size("xxxx", "zzzzz"), 0);
+    assertEquals(st.size(st.max(), "zzzzz"), 1);
+    assertEquals(st.size("", st.min()), 1);
+
+    assertEquals(st.min(), "aaaa");
+    st.deleteMin();
+    assertEquals(st.min(), "chave");
+    assertEquals(st.height(), 3);
+    assertEquals(st.size(), 3);
+    st.deleteMin();
+    assertEquals(st.size(), 2);
+    assertEquals(st.min(), "direita da raiz");
+    assertEquals(st.size(), 2);
+
+    st.put("bbbb", "bom bonito barato besta");
+    assertEquals(st.size(), 3);
+    assertEquals(st.size(), 3);
+    assertEquals(st.min(), "bbbb");
+
+    assertEquals(st.max(), "faca");
+    st.deleteMax();
+    assertEquals(st.size(), 2);
+    assertEquals(st.max(), "direita da raiz");
+
+    for(String i : st.keys()) {
+      System.out.println(i);
+    }
   }
 }
