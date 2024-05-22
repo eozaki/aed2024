@@ -65,7 +65,7 @@ public class Main {
 
     st.put("bbbb", "bom bonito barato besta");
     assertEquals(st.size(), 3);
-    assertEquals(st.size(), 3);
+    assertEquals(st.height(), 2);
     assertEquals(st.min(), "bbbb");
 
     assertEquals(st.max(), "faca");
